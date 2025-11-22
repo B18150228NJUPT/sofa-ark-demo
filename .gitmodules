@@ -1,0 +1,6 @@
+[submodule "ark-plugin-demo"]
+	path = ark-plugin-demo
+	url = https://github.com/QilongZhang/ark-plugin-demo.git
+[submodule "springboot-ark-demo"]
+	path = springboot-ark-demo
+	url = https://github.com/QilongZhang/springboot-ark-demo.git
