@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sofa-ark-support</artifactId>
+        <groupId>com.alipay.sofa</groupId>
+        <version>${sofa.ark.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sofa-ark-support-starter</artifactId>
+    <name>${project.groupId}:${project.artifactId}</name>
+
+    <properties>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <!-- 增加适配 springboot3 的 sofa-common-tools 版本 -->
+            <groupId>com.alipay.sofa.common</groupId>
+            <artifactId>sofa-common-tools</artifactId>
+            <version>${sofa.common.tools.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>failureaccess</artifactId>
+            <version>1.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <artifactId>slf4j-api</artifactId>
+            <groupId>org.slf4j</groupId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+
+        <!--SOFAArk modules-->
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-ark-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-ark-spi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-ark-archive</artifactId>
+        </dependency>
+
+        <!--junit-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--testNg-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--test-->
+        <!--   fix https://github.com/sofastack/sofa-ark/issues/851     -->
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-ark-all</artifactId>
+            <!--     please notice to use the old version to make ide import sofa-ark-all by jar rather than local classpath       -->
+            <version>${sofa.ark.version.old}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <threadCount>1</threadCount>
+                    <properties>
+                        <junit>false</junit>
+                    </properties>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>${surefire.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-testng</artifactId>
+                        <version>${surefire.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

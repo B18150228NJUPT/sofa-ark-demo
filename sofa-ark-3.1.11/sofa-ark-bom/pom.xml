@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sofa-ark</artifactId>
+        <groupId>com.alipay.sofa</groupId>
+        <version>${sofa.ark.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sofa-ark-bom</artifactId>
+    <packaging>pom</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+
+    <properties>
+        <log4j.version>2.0.11</log4j.version>
+        <log.sofa.starter.version>3.16.3</log.sofa.starter.version>
+        <sofa.common.tools.version>2.0.3</sofa.common.tools.version>
+        <logback.version>1.4.14</logback.version>
+
+        <guice.version>6.0.0</guice.version>
+        <asm.version>9.7</asm.version>
+        <commons.io.version>2.7</commons.io.version>
+        <commons.lang3.version>3.3.1</commons.lang3.version>
+
+        <maven.invoker.version>3.1.0</maven.invoker.version>
+        <maven.core.version>3.8.1</maven.core.version>
+        <maven.artifact.version>3.8.1</maven.artifact.version>
+        <maven.archiver.version>3.5.1</maven.archiver.version>
+        <maven.model.version>3.8.1</maven.model.version>
+        <maven.plugin.api.version>3.8.1</maven.plugin.api.version>
+        <maven.plugin.annotations.version>3.6.1</maven.plugin.annotations.version>
+        <maven.dependency.plugin.version>3.2.0</maven.dependency.plugin.version>
+        <maven.common.artifact.filters.version>3.2.0</maven.common.artifact.filters.version>
+
+        <plexus.utils.version>3.3.0</plexus.utils.version>
+        <plexus.build.api.version>0.0.7</plexus.build.api.version>
+        <plexus.component.annotations.version>2.1.1</plexus.component.annotations.version>
+
+        <eclipse.jgit.version>5.13.3.202401111512-r</eclipse.jgit.version>
+
+        <junit.version>4.13.1</junit.version>
+        <testng.version>6.14.3</testng.version>
+        <mockito.version>5.11.0</mockito.version>
+        <system.rules.version>1.16.0</system.rules.version>
+
+        <maven.assembly.plugin>2.4</maven.assembly.plugin>
+        <maven.plugin.plugin>3.6.1</maven.plugin.plugin>
+        <surefire.version>2.22.2</surefire.version>
+        <netty.version>4.1.109.Final</netty.version>
+        <reactor-netty.version>0.9.19.RELEASE</reactor-netty.version>
+        <spring.boot.version>3.2.1</spring.boot.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- SOFAArk modules -->
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-all</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-core</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-core-impl</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-support</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-exception</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-spi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-archive</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-container</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-support-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-maven-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-plugin-maven-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-springboot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-tools</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-common-springboot</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-compatible-springboot1</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-compatible-springboot2</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>config-ark-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>web-ark-plugin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--third party libraries-->
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>${guice.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>33.0.0-jre</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <!-- log -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.common</groupId>
+                <artifactId>sofa-common-tools</artifactId>
+                <version>${sofa.common.tools.version}</version>
+            </dependency>
+
+            <!-- maven -->
+            <dependency>
+                <groupId>org.apache.maven.shared</groupId>
+                <artifactId>maven-invoker</artifactId>
+                <version>${maven.invoker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-core</artifactId>
+                <version>${maven.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugin-tools</groupId>
+                <artifactId>maven-plugin-annotations</artifactId>
+                <version>${maven.plugin.annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven.dependency.plugin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-archiver</artifactId>
+                <version>${maven.archiver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.shared</groupId>
+                <artifactId>maven-common-artifact-filters</artifactId>
+                <version>${maven.common.artifact.filters.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>${maven.plugin.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-model</artifactId>
+                <version>${maven.model.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-artifact</artifactId>
+                <version>${maven.artifact.version}</version>
+            </dependency>
+
+            <!-- plexus -->
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-component-annotations</artifactId>
+                <version>${plexus.component.annotations.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>${plexus.utils.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.sonatype.plexus</groupId>
+                <artifactId>plexus-build-api</artifactId>
+                <version>${plexus.build.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.jgit</groupId>
+                <artifactId>org.eclipse.jgit</artifactId>
+                <version>${eclipse.jgit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-loader</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- test -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng.version}</version>
+            </dependency>
+
+            <!-- Test Dependencies -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.stefanbirkner</groupId>
+                <artifactId>system-rules</artifactId>
+                <version>${system.rules.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.14.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>2.1</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven.assembly.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>${maven.plugin.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
